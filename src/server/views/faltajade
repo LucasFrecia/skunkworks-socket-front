@@ -1,0 +1,66 @@
+      <div class="row" autoscroll="true">
+       <div class="news-detail" >
+            <div class="col-sm-12 col-lg-7 col-md-7 " >
+                <div class="news-container" *ngIf="news" style="min-height: 900px;" >
+                    <div class="title" > <h2> {{ news.title }} </h2></div>
+                    <div class="text" > <h5> {{ news.text }} </h5></div>
+                    <!-- <img-news-logo  [type]="news.referer" class="news-detail-logo" ></img-news-logo> -->
+                    <a [href]="news.link" target="_blank" >
+                        <img [src]="proxy(news.img)" style="float: left; width: 60px; height: 60px; border-radius: 50%;" [md-tooltip]="news.referer" >
+                    </a>
+                    <app-ng-ratings [ratingVal]="starsCount" [news_id]="news.id" >
+                    </app-ng-ratings>
+                    <br>
+                    <div style="margin-top: 16px;" *ngIf="news.reporter" >
+                        <b>Autor: </b> <small> {{ news.reporter }}</small> &nbsp;
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <div style="float: left;color: #A8A8A8; " > <md-icon>access_time</md-icon> </div> <div style="float: left; margin-top: 2px;color: #A8A8A8;"> <small>{{ news.created_time * 1000 | date: 'dd/MM/yyyy hh:mm' }}  </small> </div>
+                    </div>
+                    <div class="news-main-image img_nice frame" >
+                        <img (click)="OpenImageModel(news.image,images)" *ngIf="news.image" class="card-img-top img-fluid" [src]="proxy(news.image)" alt="Card image cap">
+                    </div>
+
+                    <div *ngIf="audio">
+                        <div class="audio-wrapper">
+                            <span> Robot, leeme la noticia: </span>
+                            <audio controls class="playa" di="audio" preload="auto">
+                                    <source [src]="audio" type="audio/wav">
+                                    Tu explorador no soporta el lector de noticias.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="body" [innerHTML]="embed"></div>
+
+     <!--   <div class="social-btns">
+            <a class="btn twitter" href="{{ tweet_url }}" target="_blank" ><i class="fa fa-twitter"></i></a>
+        </div> -->
+
+                </div>
+            </div>
+
+
+            <div class="col-sm-12 col-lg-5 col-md-5" >
+                <div class='most-read' layout="row" layout-wrap>
+                    <chat></chat>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-5 col-md-5" >
+                <div class='most-read' layout="row" layout-wrap>
+                    <top-news> </top-news>
+                </div>
+            </div>
+            <br /><br /><br />
+            <div class="col-sm-12 col-lg-5 col-md-5" style="float: right;" >
+                <div class='most-read' layout="row"  layout-wrap>
+                    <top-users> </top-users>
+                </div>
+            </div>
+        </div>
+        </div>
+        <br />
+
+
+      <div *ngIf="openModalWindow">
+        <ImageModal [modalImages]="images" [imagePointer]="imagePointer" (cancelEvent)="cancelImageModel()"></ImageModal>
+      </div>

@@ -1,0 +1,10 @@
+
+
+<app-article-item
+        *ngFor=" let article of articles$ | async"
+        [article]="article"
+        (onArticleUpdated)="updateArticle($event)"
+        (onArticleDeleted)="deleteArticle($event)"
+>
+</app-article-item>
+

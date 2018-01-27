@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset="UTF-8")
+    meta(property="og:url"  name="twitter:url" content= url)
+    meta(property="og:title" name="twitter:title" content= title)
+    meta(property="og:description" name="twitter:description" content= descriptionText)
+    meta(property="og:image" name="twitter:image" content= imageUrl)
+    meta(property="og:type" content="article")
+    meta(name="twitter:card" content="summary_large_image")
+    meta(name="description" content="Noticias Argentina y el mundo al minuto las 24 horas")
+    meta(name="ROBOTS" content="INDEX, FOLLOW")
+    meta(property="og:description" content="Noticias Argentina y el mundo al minuto las 24 horas")
+    meta(name="keywords" content="AI, IA, Noticias, Informe, InfoSinBandera, Geopolítica, Comentarios Noticias, Noticias mundiales")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(property="og:site_name" content="Informe Sin Bandera")
+    meta(name="twitter:creator" content="infosinbandera")
+    meta(name="twitter:site" content="infosinbandera")
+    meta(name="google-signin-scope" content="profile email")
+    link(rel="icon" href="img/bola.png")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    link(rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous")
+
+    style(type="text/css").
+      .body {
+            font-size: 1.125em;
+            line-height: 1.5;
+            color: #444;
+      }
+  body
+    div(class="title")
+      h1= title
+    div(class="text")
+      h3= subtitle
+    img(src= img alt= title)
+    div(class="body")
+      div!= body

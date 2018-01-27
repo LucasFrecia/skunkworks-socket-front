@@ -1,0 +1,25 @@
+<div  class="card">
+  <div class="card-header">
+    <p class="card-header-title">
+      @{{article.id}}
+    </p>
+
+  </div>
+  <div class="card-content">
+    <span *ngIf="!editMode" class="article-body">
+      {{article.title}}
+    </span>
+
+    <textarea class="textarea" *ngIf="editMode" [(ngModel)]="newArticleBody" >
+    </textarea>
+
+  </div>
+  <footer *ngIf="!editMode" class="card-footer">
+    <a class="card-footer-item" (click)="toggleEditMode()">Edit</a>
+    <a class="card-footer-item" (click)="deleteArticle()">Delete</a>
+  </footer>
+  <footer *ngIf="editMode" class="card-footer">
+    <a class="card-footer-item" (click)="toggleEditMode()">Cancel</a>
+    <a class="card-footer-item" (click)="updateArticle()">Save</a>
+  </footer>
+</div>
